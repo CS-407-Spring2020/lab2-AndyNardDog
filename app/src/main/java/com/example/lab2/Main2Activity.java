@@ -3,6 +3,8 @@ package com.example.lab2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
+import android.content.Intent;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -10,5 +12,10 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        TextView textView2 = (TextView) findViewById(R.id.textView2);
+        Intent intent = getIntent();
+        String str = intent.getStringExtra("message");
+        textView2.setText("Hello " + str);
     }
 }

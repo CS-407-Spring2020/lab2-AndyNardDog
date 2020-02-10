@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +19,18 @@ public class MainActivity extends AppCompatActivity {
     public void clickHandler(View view) {
 
         EditText sampleTextField = (EditText) findViewById(R.id.sampleTextField);
-        Toast.makeText(MainActivity.this, sampleTextField.getText().toString(), Toast.LENGTH_LONG).show();
+//        Toast.makeText(MainActivity.this, sampleTextField.getText().toString(), Toast.LENGTH_LONG).show();
+
+        String textFieldString = sampleTextField.getText().toString();
+        goToActivity2(textFieldString);
+
 
         Log.i("Info", "Button pressed");
+    }
+
+    public void goToActivity2(String s) {
+        Intent intent = new Intent(this, Main2Activity.class);
+        intent.putExtra("message", s);
+        startActivity(intent);
     }
 }
